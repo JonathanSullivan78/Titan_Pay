@@ -1,5 +1,5 @@
 class SalariedEmployee:
-    def __init__(self):
+    def __init__(self, employee_id, first_name, last_name, salary, commission_rate, weekly_dues):
         self.__employee_id = 0
         self.__first_name = " "
         self.__last_name = " "

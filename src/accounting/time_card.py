@@ -1,11 +1,15 @@
 class TimeCard:
-    def __init__(self):
+    def __init__(self, start_time, end_time):
         self.__date = " "
-        self.__start_time = " "
-        self.__end_time = " "
+        self.__start_time = "0:00"
+        self.__end_time = "0:00"
 
     def calculate_daily_pay(self, rate):
-        total_hours = self.__end_time - self.__start_time
+        import datetime as dt
+        start_dt = dt.datetime.strptime(self.__start_time, '%H:%M')
+        end_dt = dt.datetime.strptime(self.__end_time, '%H:%M')
+        diff = (end_dt - start_dt)
+        total_hours = diff.seconds/60/60
         if total_hours <= 8:
             daily_pay = total_hours * rate
 

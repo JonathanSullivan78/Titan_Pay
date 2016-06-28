@@ -4,7 +4,7 @@ from src.accounting import salaried_employee
 
 def run_payroll():
 
-    hourly_employee_process = open('hourly_employees.csv', 'r')
+    hourly_employee_process = open('../src/files/hourly_employees.csv', 'r')
     count = 0
     hourly_employee_list = {}
     for line in hourly_employee_process:
@@ -20,7 +20,7 @@ def run_payroll():
         count += 1
     hourly_employee_process.close()
 
-    time_card_process = open('timecards.csv', 'r')
+    time_card_process = open('../src/files/timecards.csv', 'r')
     count = 0
     for line in time_card_process:
         if count !=0:
@@ -35,7 +35,7 @@ def run_payroll():
     for x in hourly_employee_list:
         hourly_employee_list[x].calculate_pay()
 
-    salaried_employee_process = open('salaried_employees.csv', 'r')
+    salaried_employee_process = open('../src/files/salaried_employees.csv', 'r')
     count = 0
     salaried_employee_list = {}
     for line in salaried_employee_process:
@@ -52,7 +52,7 @@ def run_payroll():
 
     salaried_employee_process.close()
 
-    receipt_process = open('receipts.csv', 'r')
+    receipt_process = open('../src/files/receipts.csv', 'r')
     count = 0
     for line in receipt_process:
         if count != 0:

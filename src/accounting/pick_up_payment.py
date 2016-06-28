@@ -1,11 +1,11 @@
 from src.accounting.payment_method import PaymentMethod
 
-class MailPayment(PaymentMethod):
-    def __init__(self, first_name, last_name, total_pay):
-        PaymentMethod.__init__(self, first_name, last_name)
-        self.__first_name = first_name
-        self.__last_name = last_name
+class PickUpPayment(PaymentMethod):
+    def __init__(self, full_name, total_pay):
+        PaymentMethod.__init__(self)
+        self.__full_name = full_name
         self.__total_pay = total_pay
 
-    def pay(self, first_name, last_name, total_pay):
-        return "A check for $" + total_pay+ "is waiting for " + first_name + " " + last_name + " at the PostMaster."
+    def pay(self):
+        output =  "A check for $" + str(format(self.__total_pay, ',.2f')) + "is waiting for " + self.__full_name + " at the PostMaster."
+        return output

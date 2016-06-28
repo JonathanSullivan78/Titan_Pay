@@ -1,30 +1,48 @@
 from src.accounting.employee import Employee
 from src.accounting.receipt import Receipt
-from src.accounting.payment_method import PaymentMethod
+from src.accounting.direct_deposit_payment import DirectDepositPayment
+from src.accounting.mail_payment import MailPayment
+from src.accounting.pick_up_payment import PickUpPayment
 
 class SalariedEmployee(Employee):
 
-    def __init__(self, employee_id, first_name, last_name, salary, commission_rate, weekly_dues, payment_method):
-        Employee.__init__(self, employee_id, first_name, last_name, weekly_dues, payment_method)
+    def __init__(self, employee_id, first_name, last_name, salary, commission_rate, weekly_dues, payment_method, street_address, city, state, zipcode):
+        Employee.__init__(self, employee_id, first_name, last_name, weekly_dues, payment_method, street_address, city, state, zipcode)
 
-        self.__salary = salary
-        self.__commission_rate = commission_rate
+        self.__salary = float(salary)
+        self.__commission_rate = float(commission_rate) / 100
         self.__payment_method = payment_method
         self.__receipt_list = []
 
-    def make_sale(self, date, sale_amt):
-        self.__receipt_list.append(Receipt(date,sale_amt))
+    def make_sale(self, employee_id, last_name, item, units, unit_cost, total):
+        receipt = Receipt(employee_id, last_name, item, units, unit_cost, total)
+        self.__receipt_list.append(Receipt)
+        return
 
-    def compute_commission(self):
-        commission = self.__commission_rate * self.__receipt_list
-        return commission
+    def calculate_pay(self):
+        total_pay = 0
+        for receipt in self.__receipt_list:
+            total_pay += receipt.get_sale() * self.__commission_rate
 
-    def pay(self, salary, commission_rate):
-        payment_method = PaymentMethod()
-        payment_method.make_payment()
+        total_pay += self.__salary / 12
+        weekly_dues = Employee.get_weekly_dues(self)
+        total_pay -= float(weekly_dues)
 
-        for rc in self.__receipt_list:
-            total_pay = salary + commission_rate
-            return total_pay
+        self.pay(total_pay)
 
-        return payment_method
+    def pay(self, total_pay):
+        full_name = Employee.get_full_name(self)
+        if Employee.get_payment_method(self) == 'DD':
+            direct_deposit_payment = DirectDepositPayment(full_name, total_pay)
+            output = direct_deposit_payment.pay()
+
+        elif Employee.get_payment_method(self) == 'MA':
+            full_address = Employee.get_full_address(self)
+            mail_payment = MailPayment(full_name, full_address, total_pay)
+            output = mail_payment.pay()
+
+        else:
+            pick_up_payment = PickUpPayment(full_name, total_pay)
+            output = pick_up_payment.pay()
+
+        print(output)

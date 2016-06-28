@@ -40,7 +40,6 @@ class PayRollGUI:
 #            applicationgui
 
         def start_daily_payroll_button():
-            self.main_window.destroy()
             src.accounting.run_payroll.run_payroll()
 
         self.main_window = tkinter.Tk()

@@ -43,8 +43,8 @@ def run_payroll():
             y = line.split(',')
             y[5] = y[5].strip()
             y[6] = y[6].strip()
-            if y [5] == '-':
-                y [5] = 0
+            if y[5] == '-':
+                y[5] = 0
             employee = salaried_employee.SalariedEmployee(y[0], y[1], y[2], y[3], y[4], y[5], y[6], 'Address', 'City', 'State', 'Zip Code')
             salaried_employee_list[y[0]] = employee
 
@@ -55,7 +55,7 @@ def run_payroll():
     receipt_process = open('receipts.csv', 'r')
     count = 0
     for line in receipt_process:
-        if count !=0:
+        if count != 0:
             comma_count = 0
             line2 = ''
             for z in range(0, len(line)):
@@ -80,5 +80,3 @@ def run_payroll():
 
     for y in salaried_employee_list:
         salaried_employee_list[y].calculate_pay()
-
-

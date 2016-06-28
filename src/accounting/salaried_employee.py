@@ -4,19 +4,19 @@ from src.accounting.direct_deposit_payment import DirectDepositPayment
 from src.accounting.mail_payment import MailPayment
 from src.accounting.pick_up_payment import PickUpPayment
 
+
 class SalariedEmployee(Employee):
 
-    def __init__(self, employee_id, first_name, last_name, salary, commission_rate, weekly_dues, payment_method, street_address, city, state, zipcode):
-        Employee.__init__(self, employee_id, first_name, last_name, weekly_dues, payment_method, street_address, city, state, zipcode)
+    def __init__(self, employee_id, last_name, first_name, salary, commission_rate, weekly_dues, payment_method, street_address, city, state, zipcode):
+        Employee.__init__(self, employee_id, last_name, first_name, weekly_dues, payment_method, street_address, city, state, zipcode)
 
         self.__salary = float(salary)
         self.__commission_rate = float(commission_rate) / 100
-        self.__payment_method = payment_method
         self.__receipt_list = []
 
     def make_sale(self, employee_id, last_name, item, units, unit_cost, total):
         receipt = Receipt(employee_id, last_name, item, units, unit_cost, total)
-        self.__receipt_list.append(Receipt)
+        self.__receipt_list.append(receipt)
         return
 
     def calculate_pay(self):

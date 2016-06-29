@@ -8,5 +8,5 @@ class MailPayment(PaymentMethod):
         self.__total_pay = total_pay
 
     def pay(self):
-        output = "Mailing a check to " + self.__full_name + " for $" + str(format(self.__total_pay, ',.2f')) + "to " + self.__full_address
+        output = "Mailing a check to " + self.__full_name + " for $" + str(format(self.__total_pay, ',.2f')) + " to " + self.__full_address
         return output

@@ -11,7 +11,7 @@ class Employee:
         self.__city = city
         self.__state = state
         self.__zip_code = zip_code
-        self.__full_address = street_address + "- " + city + ", " + state + "  " + zip_code
+        self.__full_address = street_address + ", " + city + ", " + state + "  " + zip_code
 
     def get_full_name(self):
         full_name = self.__first_name + " " + self.__last_name

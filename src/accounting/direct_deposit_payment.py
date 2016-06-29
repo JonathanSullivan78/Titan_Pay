@@ -8,6 +8,6 @@ class DirectDepositPayment(PaymentMethod):
         self.__total_pay = total_pay
 
     def pay(self):
-        bankaccount = BankAccount('Bank Name', 'Routing Number', 'Account Number')
+        bankaccount = BankAccount('GTE Federal', '0123456789', '21043500074')
         output = bankaccount.deposit(self.__full_name, self.__total_pay)
         return output

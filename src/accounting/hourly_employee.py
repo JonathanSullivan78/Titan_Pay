@@ -5,8 +5,7 @@ from src.accounting.mail_payment import MailPayment
 from src.accounting.pick_up_payment import PickUpPayment
 
 
-
-class Hourly_Employee(Employee):
+class HourlyEmployee(Employee):
     def __init__(self, employee_id, last_name, first_name, hourly_rate, weekly_dues, payment_method, street_address, city, state, zipcode):
         Employee.__init__(self, employee_id, last_name, first_name, weekly_dues, payment_method, street_address, city, state, zipcode)
         self.__hourly_rate = hourly_rate

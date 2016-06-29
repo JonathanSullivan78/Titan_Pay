@@ -7,5 +7,5 @@ class PickUpPayment(PaymentMethod):
         self.__total_pay = total_pay
 
     def pay(self):
-        output =  "A check for $" + str(format(self.__total_pay, ',.2f')) + "is waiting for " + self.__full_name + " at the PostMaster."
+        output =  "A check for $" + str(format(self.__total_pay, ',.2f')) + " is waiting for " + self.__full_name + " at the Post Master."
         return output

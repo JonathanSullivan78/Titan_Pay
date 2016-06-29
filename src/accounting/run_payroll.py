@@ -2,7 +2,7 @@ from src.accounting import hourly_employee
 from src.accounting import salaried_employee
 
 
-def run_payroll():
+def runpayroll():
 
     hourly_employee_process = open('../src/files/hourly_employees.csv', 'r')
     count = 0
@@ -14,7 +14,7 @@ def run_payroll():
             x[5] = x[5].strip()
             if x [4] == '-':
                 x [4] = 0
-            employee = hourly_employee.Hourly_Employee(x[0], x[1], x[2], x[3], x[4], x[5], 'Address', 'City', 'State', 'Zip Code')
+            employee = hourly_employee.HourlyEmployee(x[0], x[1], x[2], x[3], x[4], x[5], '123 Main Street', 'Clearwater', 'FL', '33777')
             hourly_employee_list[x[0]] = employee
 
         count += 1
@@ -45,7 +45,7 @@ def run_payroll():
             y[6] = y[6].strip()
             if y[5] == '-':
                 y[5] = 0
-            employee = salaried_employee.SalariedEmployee(y[0], y[1], y[2], y[3], y[4], y[5], y[6], 'Address', 'City', 'State', 'Zip Code')
+            employee = salaried_employee.SalariedEmployee(y[0], y[1], y[2], y[3], y[4], y[5], y[6], '123 Main Street', 'Clearwater', 'FL', '33777')
             salaried_employee_list[y[0]] = employee
 
         count += 1

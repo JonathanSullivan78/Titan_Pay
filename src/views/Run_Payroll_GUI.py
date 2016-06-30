@@ -37,8 +37,4 @@ class RunPayrollGUI:
         cancel_button.configure(width=15, activebackground="#33B5E5", relief=FLAT)
         cancel_button_window = canvas.create_window(650, 375, anchor=NW, window=cancel_button)
 
-        #quit_button = Button(canvas, text='Quit', command=self.main_window.destroy, anchor=W)
-        #quit_button.configure(width=10, activebackground="#33B5E5", relief=FLAT)
-        #quit_button_window = canvas.create_window(1080, 600, anchor=NW, window=quit_button)
-
         tkinter.mainloop()

@@ -12,7 +12,6 @@ class RunPayrollGUI:
             self.main_window.destroy()
             src.views.main_gui.MainGUI()
 
-
         self.main_window = tkinter.Tk()
 
         self.bottom_frame = tkinter.Frame(self.main_window)
@@ -23,6 +22,10 @@ class RunPayrollGUI:
 
         gif2 = PhotoImage(file='../src/images/wallpaper.gif')
         canvas.create_image(0, 0, image=gif2, anchor=NW)
+
+        response = Label(canvas, text= 'Payroll Process Complete' , fg='white', bg='black')
+        response.pack
+        response_window = canvas.create_window(448, 335, anchor=NW, window=response)
 
         start_button = Button(canvas, text="Return to Main Menu", command=ok_button, anchor=W)
         start_button.configure(width=15, activebackground="#33B5E5", relief=FLAT)

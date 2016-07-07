@@ -30,7 +30,7 @@ def create_database():
     c.execute("ALTER TABLE {tn} ADD COLUMN '{cn}' {ct}".format(tn='Receipts', cn='Item', ct='TEXT'))
     c.execute("ALTER TABLE {tn} ADD COLUMN '{cn}' {ct}".format(tn='Receipts', cn='Units', ct='TEXT'))
     c.execute("ALTER TABLE {tn} ADD COLUMN '{cn}' {ct}".format(tn='Receipts', cn='Unit_Cost', ct='TEXT'))
-    c.execute("ALTER TABLE {tn} ADD COLUMN '{cn}' {ct}".format(tn='Receipts', cn='Total', ct='REAL'))
+    c.execute("ALTER TABLE {tn} ADD COLUMN '{cn}' {ct}".format(tn='Receipts', cn='Total', ct='TEXT'))
     # Finalize
     con.commit()
     con.close()

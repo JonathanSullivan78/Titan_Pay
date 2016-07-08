@@ -8,4 +8,5 @@ class Receipt:
         self.__total_amount = total_amount
 
     def get_sale(self):
-        return self.__total_amount
+        total = self.__units * self.__unit_cost
+        return total

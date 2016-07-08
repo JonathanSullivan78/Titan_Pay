@@ -16,10 +16,16 @@ class HourlyEmployee(Employee):
         timecard = TimeCard(date, start_time, end_time)
         self.__time_cards.append(timecard)
 
+    def get_timecard_length(self):
+        return len(self.__time_cards)
+
     def clock_out(self, date, end_time):
         for t in self.__time_cards:
             if t.get_date() == date:
                 t.set_end_time(end_time)
+
+    def get_timecard_end_time(self):
+        return self.__time_cards[0].end_time
 
     def calculate_pay(self):
         total_pay = 0

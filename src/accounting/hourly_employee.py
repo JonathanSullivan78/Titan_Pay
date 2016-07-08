@@ -54,5 +54,5 @@ class HourlyEmployee(Employee):
 
         messagebox.showinfo('Payroll Result', output)
 
-        print(output)
+        return(output)
 

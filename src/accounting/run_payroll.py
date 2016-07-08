@@ -1,11 +1,16 @@
 from src.accounting import hourly_employee
 from src.accounting import salaried_employee
 import sqlite3
+import tkinter as tk
+import tkinter
 
 
 class RunPayroll:
 
     def __init__(self):
+
+        root = tk.Tk()
+        root.withdraw()
 
         # Hourly Employee Processor
         con = sqlite3.connect('../src/files/system_database.sqlite')
@@ -86,3 +91,8 @@ class RunPayroll:
 
         for record in salaried_employee_list:
             salaried_employee_list[record].calculate_pay()
+
+
+        root2 = tk.Tk()
+        root.destroy()
+        root2.destroy()

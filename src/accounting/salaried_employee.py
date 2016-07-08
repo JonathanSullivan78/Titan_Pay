@@ -19,6 +19,9 @@ class SalariedEmployee(Employee):
         self.__receipt_list.append(receipt)
         return
 
+    def get_receipt_count(self):
+        return len(self.__receipt_list)
+
     def calculate_pay(self):
         total_pay = 0
         for receipt in self.__receipt_list:

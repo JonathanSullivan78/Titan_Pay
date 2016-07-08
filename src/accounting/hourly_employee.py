@@ -21,7 +21,7 @@ class HourlyEmployee(Employee):
 
     def clock_out(self, date, end_time):
         for t in self.__time_cards:
-            if t.get_date() == date:
+            if t.get_timecard_date() == date:
                 t.set_end_time(end_time)
 
     def get_timecard_end_time(self):
@@ -53,4 +53,5 @@ class HourlyEmployee(Employee):
             output = pick_up_payment.pay()
 
         print(output)
+        return (output)
 

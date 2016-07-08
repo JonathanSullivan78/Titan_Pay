@@ -8,3 +8,11 @@ class TestSalariedEmployee(TestCase):
         sample_employee.make_sale('86', 'Sullivan', 'Stuff', '1', '125', 125)
         test_length = sample_employee.get_receipt_count()
         self.assertEqual(test_length, 1)
+
+    def test_calculate_pay(self):
+        sample_employee = salaried_employee.SalariedEmployee('86', 'Sullivan', 'Jonathan', '77676', '7', '0.00', 'MA',
+                                                             '123 Main Street', 'Testville', 'FL', '33777')
+        sample_employee.make_sale('86', 'Sullivan', 'Stuff', '1', '125', 125)
+        test_pay = sample_employee.calculate_pay()
+        print(format(test_pay,'.2f'))
+        self.assertEqual(format(test_pay,'.2f'), '6481.75')

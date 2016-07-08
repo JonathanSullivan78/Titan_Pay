@@ -36,6 +36,7 @@ class HourlyEmployee(Employee):
             weekly_dues = float(Employee.get_weekly_dues(self))
             total_pay -= weekly_dues
             self.total_payment(total_pay)
+        return(total_pay)
 
     def total_payment(self, total_pay):
         full_name = Employee.get_full_name(self)

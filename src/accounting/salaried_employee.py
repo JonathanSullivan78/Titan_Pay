@@ -3,6 +3,7 @@ from src.accounting.receipt import Receipt
 from src.accounting.direct_deposit_payment import DirectDepositPayment
 from src.accounting.mail_payment import MailPayment
 from src.accounting.pick_up_payment import PickUpPayment
+from tkinter import messagebox
 
 
 class SalariedEmployee(Employee):
@@ -47,5 +48,7 @@ class SalariedEmployee(Employee):
         else:
             pick_up_payment = PickUpPayment(full_name, total_pay)
             output = pick_up_payment.pay()
+
+        messagebox.showinfo('Payroll Result', output)
 
         print(output)

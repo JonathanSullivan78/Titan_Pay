@@ -3,7 +3,7 @@ from src.accounting.time_card import TimeCard
 from src.accounting.direct_deposit_payment import DirectDepositPayment
 from src.accounting.mail_payment import MailPayment
 from src.accounting.pick_up_payment import PickUpPayment
-
+from tkinter import messagebox
 
 class HourlyEmployee(Employee):
     def __init__(self, employee_id, last_name, first_name, hourly_rate, weekly_dues, payment_method, street_address, city, state, zipcode):
@@ -52,6 +52,7 @@ class HourlyEmployee(Employee):
             pick_up_payment = PickUpPayment(full_name, total_pay)
             output = pick_up_payment.pay()
 
+        messagebox.showinfo('Payroll Result', output)
+
         print(output)
-        return (output)
 
